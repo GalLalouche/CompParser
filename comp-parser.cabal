@@ -1,0 +1,52 @@
+name:                comp-parser
+version:             0.1.0.0
+-- synopsis:
+-- description:
+license:             BSD3
+license-file:        LICENSE
+author:              Author name here
+maintainer:          example@example.com
+copyright:           2017 Author name here
+category:            Web
+build-type:          Simple
+cabal-version:       >=1.10
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     Parsers, Printers, LibInternal
+  build-depends:       base >= 4.7 && < 5
+                     , process >= 1.4.2.0
+                     , common
+                     , parsec
+                     , containers
+                     , text-format-simple
+  default-language:    Haskell2010
+
+executable comp-parser-exe
+  hs-source-dirs:      app
+  main-is:             Main.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base
+                     , comp-parser
+                     , parsec
+                     , common
+                     , argparser
+  default-language:    Haskell2010
+
+test-suite comp-parser-test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Spec.hs
+  build-depends:       HUnit
+                     , base
+                     , common
+                     , comp-parser
+                     , parsec
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  default-language:    Haskell2010
+
+source-repository head
+  type:     git
+  location: https://github.com/githubuser/comp-parser
+
+
